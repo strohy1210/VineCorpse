@@ -1,3 +1,6 @@
+<% content_for(:page_header) {"Make dope videos using your favorite vines!"} %>
+
+
 <video id="video" muted="" type="video/mp4" preload="auto" src="http://mtc.cdn.vine.co/r/videos/3AB6D2EB881147000361383788544_109087e8457.3.2.mp4?versionId=kM3uOGA3tDvGUgn1YOJhJbYPjvyK42jN"></video>
 
 
@@ -10,15 +13,22 @@
 <script type="text/javascript">
 
 var allVideos = document.getElementsByTagName("video");
+
+// allVideos[0].play()
+_.each(allVideos, setTimeout(function(v){ 
+v.play();}, 5000)
+
+
+)
   
-  allVideos[0].play();
-  debugger
-  allVideos.pop();
-  allVideos.forEach(function(video, i) {
-    video.onended = function() {
-      if(i < allVideos.length - 1){
-        allVideos[i + 1].play();
-      }
-    }
-  });
+  // allVideos[0].play();
+  // debugger
+  // allVideos.pop();
+  // allVideos.forEach(function(video, i) {
+  //   video.onended = function() {
+  //     if(i < allVideos.length - 1){
+  //       allVideos[i + 1].play();
+  //     }
+  //   }
+  // });
 </script>
