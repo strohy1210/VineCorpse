@@ -1,8 +1,8 @@
 class Vine < ActiveRecord::Base
 
   def self.find_by_tag(tagname='starwars')
-    tagname = 'starwars' if tagname.size < 1
-    json = open("https://api.vineapp.com/timelines/tags/#{tagname}")
+
+    json =  open(URI::encode("https://api.vineapp.com/timelines/tags/#{tagname}"))
     parsed_json = JSON.load(json)
 
     parsed_json["data"]["records"].collect do |record|
