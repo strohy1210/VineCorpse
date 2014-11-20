@@ -1,4 +1,9 @@
 <% content_for(:page_header) {"VineCorpse"} %>
+<%= form_tag('#', method: 'get') do  %>
+ <%= label_tag("Search vine category to start creating!") %>
+ <%= text_field_tag(:keyword) %>
+ <%= submit_tag("Search") %>
+<% end %>
 <h3> Make Dope Videos </h3>
 <video id="video" type="video/mp4" preload="auto" src="http://mtc.cdn.vine.co/r/videos/3AB6D2EB881147000361383788544_109087e8457.3.2.mp4?versionId=kM3uOGA3tDvGUgn1YOJhJbYPjvyK42jN"></video>
 
