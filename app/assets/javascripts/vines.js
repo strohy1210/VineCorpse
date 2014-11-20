@@ -1,14 +1,20 @@
 $(function(){
 
 var allVideos = document.getElementsByTagName("video");
+  
 
-allVideos[0].play();
-
-for(var i = 0; i < allVideos.length - 1; i++){
-  allVideos[i].onended = (function (a) {
-     return function() { allVideos[a + 1].play() }
-  })(i);
-}
+  $("video").hide();
+  $(allVideos[0]).show();
+  allVideos[0].play();
+  for(var i = 0; i < allVideos.length - 1; i++){
+    allVideos[i].onended = (function (a) {
+       return function() {         
+        $(allVideos[a]).hide()
+        $(allVideos[a + 1]).show()
+        allVideos[a + 1].play() 
+      }
+    })(i);
+  }
 
 });
  
