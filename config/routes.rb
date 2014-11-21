@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'search/search'
 
-  resources :movies, only: [:create, :show]
+  resources :movies, only: [:create, :show, :edit]
 
   root 'vines#index'
   get 'search/' => 'search#search'

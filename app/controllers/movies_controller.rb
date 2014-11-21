@@ -7,7 +7,12 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.save
-    redirect_to movie_path(@movie)
+    redirect_to edit_movie_path(@movie)
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+    @vines = @movie.vines
   end
 
   def show
