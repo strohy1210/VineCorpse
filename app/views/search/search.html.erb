@@ -1,10 +1,10 @@
-
-<h1> All the <%=@tag%> vines... </h1>
+<% content_for(:page_header) { "Vines to choose!"} %>
+<h3>Step 2 - Add a title, choose the <%= @tag%> vines you'll use to create your movie, and submit! </h3>
 <div class="search_results">
 
 <%= form_for @movie do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label "Movie Title" %> 
+  <%= f.text_field :title, class: "form-control" %> <br>
   <% @vines.each do |v| %>
 
   <video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>

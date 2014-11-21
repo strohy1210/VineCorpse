@@ -1,13 +1,13 @@
-
+<% content_for(:page_header) { "Your video...so far!"} %>
 <%= @movie.title %>
 
-<div class="reel">
+
 <% @movie.vines.each do |v| %>
-  <video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+  <video id="video" class="reel" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
 <% end %>
-</div>
 
+<br>
 
 <% @movie.vines.each do |v| %>
-  <video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+ <video id="video" class='clips' type="video/mp4" preload="auto" src=<%= v.video_url %>></video> 
 <% end %>
