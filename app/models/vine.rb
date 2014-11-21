@@ -1,4 +1,5 @@
 class Vine < ActiveRecord::Base
+  belongs_to :movie
 
   def self.find_by_tag(tagname='starwars')
 

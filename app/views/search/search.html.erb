@@ -1,9 +1,19 @@
+
 <h1> All the <%=@tag%> vines... </h1>
+<div class="search_results">
 
-<% @vines.each do |v| %>
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <% @vines.each do |v| %>
 
-<video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+  <video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+  <input id="movie_vines_attributes" name="movie[vines_attributes][][video_url]" value='<%= v.video_url %>' type="checkbox">
 <!-- 
 <h1> Aw shoot...sorry. Couldn't find any results. Try something a little simpler like "Skateboarding" </h1>
  -->
 <%end%>
+  <%= f.submit %>
+<% end %>
+
+</div>

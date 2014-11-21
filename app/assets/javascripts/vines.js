@@ -1,8 +1,9 @@
 $(function(){
 
+if($('.search_results').length < 1) {
+
 var allVideos = document.getElementsByTagName("video");
   
-
   $("video").hide();
   $(allVideos[0]).show();
   allVideos[0].play();
@@ -15,6 +16,8 @@ var allVideos = document.getElementsByTagName("video");
       }
     })(i);
   }
+
+}
 
 });
  
