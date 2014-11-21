@@ -1,0 +1,10 @@
+<h1> All the <%=@tag%> vines... </h1>
+<% if @vines %>
+<% @vines.each do |v| %>
+<span class="glyphicon glyphicon-check"></span>
+<video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+<%else%>
+<h1> Aw shoot...sorry. Couldn't find any results. Try something a little simpler like "Skateboarding" </h1>
+<%end%>
+<%end%>
+<%= link_to "Back" root_path %>
