@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120192725) do
+ActiveRecord::Schema.define(version: 20141121143602) do
+
+  create_table "movies", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "vines", force: true do |t|
     t.string   "video_url"
