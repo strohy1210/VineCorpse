@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'search/search'
 
-  resources :movies, only: [:create, :show, :edit]
+  resources :movies, only: [:create, :show, :edit] do
+    resources :vines, only: [:destroy]
+  end
 
   root 'vines#index'
   get 'search/' => 'search#search'

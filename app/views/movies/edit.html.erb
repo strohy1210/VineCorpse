@@ -3,11 +3,17 @@
 
 
 <% @movie.vines.each do |v| %>
-  <video id="video" class="reel" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+
+  <video id="video" data-id='<%=v.id%>' class="reel" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
 <% end %>
 
 <br>
 
 <% @movie.vines.each do |v| %>
+<div data-id='<%=v.id%>'>
  <video id="video" class='clips' type="video/mp4" preload="auto" src=<%= v.video_url %>></video> 
+<%= button_to "Delete from movie", movie_vine_path(@movie, v),
+method: :delete, remote: true %>
+</div>
 <% end %>
+
