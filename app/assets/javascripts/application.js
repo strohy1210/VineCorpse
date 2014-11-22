@@ -15,4 +15,5 @@
 //= require underscore
 //= require bootstrap
 //= require vineMovie
+//= require jquery-ui
 //= require_tree .

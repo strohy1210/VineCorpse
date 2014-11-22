@@ -18,41 +18,23 @@ var VineMovie = (function($) {
   }
 
   _VineMovie.prototype.start = function() {
-    $(this.domVideoElements[this.currentVideo]).show();
-    this.domVideoElements[this.currentVideo].play();    
+    $(this.currentDomVideo()).show();
+    this.currentDomVideo().play();    
+  }
+
+  _VineMovie.prototype.currentDomVideo = function() {
+    return this.$el.find("video").get(this.currentVideo)
   }
 
   _VineMovie.prototype.playNext = function() {
-    $(this.domVideoElements[this.currentVideo]).hide();
+    $(this.currentDomVideo()).hide();
 
-    var nextToPlay = (this.currentVideo + 1) % this.domVideoElements.length; 
-    $(this.domVideoElements[nextToPlay]).show();
-    this.domVideoElements[nextToPlay].play();
-    this.currentVideo = nextToPlay;
+    this.currentVideo = (this.currentVideo + 1) % this.$el.find("video").length;  
+
+    $(this.currentDomVideo()).show();
+    this.currentDomVideo().play();
   }
 
-
-  function _addVideosToReel(sourceDiv, urls) {
-    var domVideoElements = []
-    var self = this;
-    for(var i = 0; i < urls.length; i++){
-      var $video = $("<video>")
-      $video.attr('src', urls[i]);
-
-      if(this.muted) {
-        $video.attr('muted', 'muted');
-      }
-
-      $video.attr('preload', 'auto');
-
-      $video.on('ended', function(){
-        self.playNext()
-      })
-      $video.hide();
-      this.domVideoElements.push($video.get()[0])
-      sourceDiv.append($video);
-    }
-  }
 
   function _formatVideosToReel() {
     var $videos = this.$el.find('video'),
@@ -63,7 +45,10 @@ var VineMovie = (function($) {
       $videos.eq(i).on('ended', function(){
         self.playNext()
       });
-      this.domVideoElements.push($videos.get(i))
+      $videos.eq(i).on('remove', function(){
+        self.playNext()
+      });
+
     }
   }
 
