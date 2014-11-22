@@ -2,16 +2,17 @@
 <h3><%= @movie.title.capitalize %></h3>
 
 
+<div class="reel">
 <% @movie.vines.each do |v| %>
-
-  <video id="video" data-id='<%=v.id%>' class="reel" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
+  <video id="video" data-id='<%=v.id%>'  muted type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
 <% end %>
+</div>
 
 <br>
 
 <% @movie.vines.each do |v| %>
 <div data-id='<%=v.id%>' class='col-xs-4'>
- <video id="video"  class='clips' type="video/mp4" preload="auto" src=<%= v.video_url %>></video> 
+ <video id="video"  class='clips' type="video/mp4" muted preload="auto" src=<%= v.video_url %>></video> 
 <%= button_to "Delete from movie", movie_vine_path(@movie, v),
 method: :delete, remote: true %>
 </div>

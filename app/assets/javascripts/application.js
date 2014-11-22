@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require underscore
 //= require bootstrap
+//= require vineMovie
 //= require_tree .
