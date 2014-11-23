@@ -1,19 +1,24 @@
 <% content_for(:page_header) { "Your video...so far!"} %>
 <h3><%= @movie.title.capitalize %></h3>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="reel">
+    <% @movie.vines.each do |v| %>
+      <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true) %>
+    <% end %>
+  </div>
 
-<div class="reel">
-  <% @movie.vines.each do |v| %>
-    <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true) %>
-  <% end %>
 </div>
 
-<br>
+<div class="row">
+  <div class="col-md-12">
+    <% @movie.vines.each do |v| %>
+    <div data-id='<%=v.id%>' class='col-xs-4'>
+      <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true, class: 'clips') %>
+      <%= button_to "Delete from movie", movie_vine_path(@movie, v), method: :delete, remote: true %>
+    </div>
+    <% end %>
+  </div>
 
-<% @movie.vines.each do |v| %>
-<div data-id='<%=v.id%>' class='col-xs-4'>
-  <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true, class: 'clips') %>
-  <%= button_to "Delete from movie", movie_vine_path(@movie, v), method: :delete, remote: true %>
 </div>
-<% end %>
-

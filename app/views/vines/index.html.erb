@@ -1,6 +1,22 @@
 <% content_for(:page_header) {"Make Dope Videos with Vines"}%>
 
-<%= form_tag(search_path, method: 'get', class: "navbar-form", role: "search") do %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3> Demo </h3>
+    <div class="reel">  
+      <%= video_tag("http://v.cdn.vine.co/r/videos/9B3DB14CD11147628505182666752_386718a51d4.0.1.6199524836216582996.mp4?versionId=GaRRFOM9OrwibQEXbTkFiGj1Y6arIYuo", muted:true) %>
+      <%= video_tag("http://mtc.cdn.vine.co/r/videos/DCAAA601161147594406665351168_3b5e75d3b88.0.1.880635800311096088.mp4?versionId=E9AvypP8xfphw7.2Q75q5D8QiHeQcbhc", muted:true) %>
+
+      <%= video_tag("http://v.cdn.vine.co/r/videos/D1C91DE0CC1147593697945436160_3490dd20824.0.1.944355710863107527.mp4?versionId=T1TuffPaTMbi2jKvQGb6PE1Ck6Kh6HMH", muted:true) %>  
+
+      <%= video_tag("http://mtc.cdn.vine.co/r/videos/D3C964E5941147661900390232064_37755c88ebf.0.1.18361031168910316275.mp4?versionId=dtvNqX6SmPPGPLKxjfMKdQNtMEfmv7qc", muted:true) %>  
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(search_path, method: 'get', class: "navbar-form", role: "search") do %>
  <h4>Step One - Find vines you'll use for your video:</h4>
     <div class="input-group">
         <input type="text" class="form-control" placeholder="puppies" name="tag">
@@ -9,15 +25,6 @@
         </div>
     </div>
         
-<% end %> 
-
- <h3> Demo </h3>
-
-<div class="reel">  
-  <%= video_tag("http://v.cdn.vine.co/r/videos/9B3DB14CD11147628505182666752_386718a51d4.0.1.6199524836216582996.mp4?versionId=GaRRFOM9OrwibQEXbTkFiGj1Y6arIYuo", muted:true) %>
-  <%= video_tag("http://mtc.cdn.vine.co/r/videos/DCAAA601161147594406665351168_3b5e75d3b88.0.1.880635800311096088.mp4?versionId=E9AvypP8xfphw7.2Q75q5D8QiHeQcbhc", muted:true) %>
-
-  <%= video_tag("http://v.cdn.vine.co/r/videos/D1C91DE0CC1147593697945436160_3490dd20824.0.1.944355710863107527.mp4?versionId=T1TuffPaTMbi2jKvQGb6PE1Ck6Kh6HMH", muted:true) %>  
-
-  <%= video_tag("http://mtc.cdn.vine.co/r/videos/D3C964E5941147661900390232064_37755c88ebf.0.1.18361031168910316275.mp4?versionId=dtvNqX6SmPPGPLKxjfMKdQNtMEfmv7qc", muted:true) %>  
+  <% end %> 
+  </div>
 </div>
