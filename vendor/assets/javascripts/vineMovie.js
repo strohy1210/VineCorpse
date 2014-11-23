@@ -18,15 +18,14 @@ var VineMovie = (function($) {
   }
 
   _VineMovie.prototype.currentDomVideo = function() {
-    return this.$el.find("video").get(this.currentVideo)
+    return this.$el.find("video.reel-clip").get(this.currentVideo)
   }
 
   _VineMovie.prototype.playNext = function() {
     $(this.$el.find("video")).hide();  
 
-    this.currentVideo = (this.currentVideo + 1) % this.$el.find("video").length;  
+    this.currentVideo = (this.currentVideo + 1) % this.$el.find("video.reel-clip").length;  
 
-    console.log('playing', this.currentVideo, this.currentDomVideo(), this.$el.find("video").length)
     $(this.currentDomVideo()).show();
     this.currentDomVideo().play();
   }
@@ -38,12 +37,14 @@ var VineMovie = (function($) {
 
     for(var i = 0; i < $videos.length; i++) {
       $videos.eq(i).hide()
+      $videos.eq(i).addClass('reel-clip')
       $videos.eq(i).on('ended', function(){
         self.playNext()
       });
       $videos.eq(i).on('remove', function(){
         if(!this.paused){
-          self.currentVideo = 0
+          self.currentVideo = self.currentVideo - 1
+          $(this).removeClass('reel-clip')
           self.playNext();
         }
       });
