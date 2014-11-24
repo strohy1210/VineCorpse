@@ -15,6 +15,13 @@ class MoviesController < ApplicationController
     @vines = @movie.vines
   end
 
+  def update
+    # binding.pry
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    redirect_to edit_movie_path
+  end
+
   def show
     @movie = Movie.find(params[:id])
   end

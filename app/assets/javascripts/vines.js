@@ -1,7 +1,5 @@
 $(function(){
 
-// if there's a class reel that exists on the page
-// with something in it
 
 if($('.reel').length > 0) {
   var movieReel = new VineMovie({
