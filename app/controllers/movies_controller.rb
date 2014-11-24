@@ -19,7 +19,6 @@ class MoviesController < ApplicationController
     # binding.pry
     @movie = Movie.find(params[:id])
     @movie.update(movie_params)
-    redirect_to edit_movie_path
   end
 
   def show

@@ -11,6 +11,7 @@
 
 </div>
 
+
 <div class="row">
   <div class="col-md-12">
     <% @movie.vines.each do |v| %>
@@ -39,7 +40,7 @@
   </div>
 </div>
 
-<%= form_for @movie do |f| %>
+<%= form_for @movie, remote: true do |f| %>
 <div class="search-results">
 
 </div>
