@@ -1,0 +1,3 @@
+<% @movie.vines.each do |v| %>
+  <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true) %>
+<% end %>
