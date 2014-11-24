@@ -3,7 +3,7 @@ class SearchController < ApplicationController
  
     vines = Vine.find_by_tag(params[:tag])
     @tag = params[:tag]
-    @vines = vines[0..9]
+    @vines = vines[0..11]
     @movie = Movie.new
     render :search
 
