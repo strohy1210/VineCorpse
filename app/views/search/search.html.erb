@@ -1,18 +1,25 @@
 <% content_for(:page_header) { "Vines to choose!"} %>
 
 <% if @vines && @vines.size > 0 %>
-  <h3>Step 2 - Add a title, choose the <%= @tag%> vines you'll use to create your movie, and submit! </h3>
-  <div class="search_results">
-    <%= form_for @movie do |f| %>
-      <%= f.label "Movie Title" %> 
-      <%= f.text_field :title, class: "form-control" %> <br>
-        <% @vines.each do |v| %>
-          <%= video_tag(v.video_url, preload:'auto', muted:true) %>
-          <input id="movie_vines_attributes" name="movie[vines_attributes][][video_url]" value='<%= v.video_url %>' type="checkbox">
-        <%end%>
-      <%= f.submit %>
-    <% end %>
-  </div>
+  <div class="row">
+    <div class="col-md-12 search_results">
+        <h3>Step 2 - Add a title, choose the <%= @tag%> vines you'll use to create your movie, and submit! </h3>
+        <%= form_for @movie do |f| %>
+
+          <div class="form-group">
+            <%= f.label "Movie Title" %> 
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+
+          
+            <%= render 'search/results' %>
+
+          <div class="form-group">
+            <%= f.submit %>
+          </div>
+        <% end %>
+    </div>  
+  </div>    
 <% else %>
   <h3> Aw shoot...sorry. Couldn't find any results. Try something a little simpler like "Skateboarding" </h3>
 <% end %>
