@@ -1,8 +1,16 @@
 <div class="row">
-<% @vines.each do |v| %>
+  <%= form_for @movie, remote: true do |f| %>
+    <% @vines.each do |v| %>
+      <div class="col-md-3">
+        <%= video_tag(v.video_url, preload:'auto', muted:true) %>
+        <input id="movie_vines_attributes" name="movie[vines_attributes][][video_url]" value='<%= v.video_url %>' type="checkbox">
+      </div>
+    <%end%>
+</div>
+<br>
+<div class="row">
   <div class="col-md-3">
-    <%= video_tag(v.video_url, preload:'auto', muted:true) %>
-    <input id="movie_vines_attributes" name="movie[vines_attributes][][video_url]" value='<%= v.video_url %>' type="checkbox">
+    <%= f.submit "Add vines to movie" %>
   </div>
-<%end%>
+  <% end %>
 </div>

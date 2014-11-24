@@ -1,11 +1,12 @@
 <% content_for(:page_header) { "Your video...so far!"} %>
-<h3><%= @movie.title.capitalize %></h3>
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-  <div class="reel">
-    <%= render 'reel' %>
-  </div>
+    <h3><%= @movie.title.capitalize %></h3>
+    <div class="reel">
+      <%= render 'reel' %>
+    </div>
 
 </div>
 
@@ -34,9 +35,8 @@
   </div>
 </div>
 
-<%= form_for @movie, remote: true do |f| %>
+
 <div class="search-results">
 
 </div>
-<%= f.submit "Add vines to movie" %>
-<% end %>
+

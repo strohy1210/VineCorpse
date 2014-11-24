@@ -1,1 +1,5 @@
-$('.search-results').html("<%=j render 'results' %>")
+<% if @vines.length > 0 %>
+  $('.search-results').html("<%=j render 'results' %>")
+<% else %>
+  $('.search-results').html('<h3> <%= @tag.capitalize %> is not a recent vine tag. Try something like "cats" or "brasil" for more results. </h3>')
+<%end%>
