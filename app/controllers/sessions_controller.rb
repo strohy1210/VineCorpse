@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-
+  skip_before_action :authorize
 
   def create
     @user = User.get_user_from_omniauth(auth_hash)
+
     login(@user)
     redirect_to root_path
   end

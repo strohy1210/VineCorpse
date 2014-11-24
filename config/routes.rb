@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   get 'search/search'
 
   get '/auth/facebook/callback', to: 'sessions#create'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
     resources :vines, only: [:destroy]
   end
 
-  root 'application#index'
+  root 'welcome#index'
   get 'search' => 'search#search'
 
 end

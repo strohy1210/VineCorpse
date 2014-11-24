@@ -5,7 +5,9 @@ class MoviesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @movie = Movie.new(movie_params)
+    @movie.user = current_user
     @movie.save
     redirect_to edit_movie_path(@movie)
   end
