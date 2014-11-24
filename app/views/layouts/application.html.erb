@@ -14,7 +14,12 @@
       <%= link_to 'VineMash', root_path, class: 'navbar-brand' %>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to 'Vine.co', 'https://vine.co/', target: '_blank' %></li>
+      <% if !logged_in? %>
+      <li><%= link_to 'Log in with Facebook', '/auth/facebook' %></li>
+      <% else %>
+      <li><%= image_tag current_user.image_url, class: 'profile-image' %></li>
+      <li><%= link_to 'Logout', '/logout', method: "delete" %></li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -30,6 +35,8 @@
     <h1><%= yield :page_header %></h1>
 </div>
 <%= yield %>
+
+
 
 </body>
 </html>
