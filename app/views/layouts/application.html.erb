@@ -9,38 +9,55 @@
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
-<body>
-<div class="navbar navbar-inverse">
+<body data-spy="scroll" data-target="#main-nav" data-offset="400">
+    <!-- ==============================================
+    MAIN NAV
+    =============================================== -->
+<div id="main-nav" class="navbar navbar-fixed-top">
   <div class="container">
+  
     <div class="navbar-header">
-      <%= link_to 'VineMash', root_path, class: 'navbar-brand' %>
+    
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      
+      <!-- ======= LOGO (for small screens)========-->
+      <a class="navbar-brand visible-xs scrollto" href="#home">Jd</a>
+      
     </div>
-    <ul class="nav navbar-nav">
-      <% if !logged_in? %>
-      <li><%= link_to 'Log in with Facebook', '/auth/facebook' %></li>
-      <% else %>
-      <li><%= link_to image_tag(current_user.image_url), user_path(current_user), class: 'profile-image' %>
-
-      </li>
-      <li><%= link_to 'Logout', '/logout', method: "delete" %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+    
+    <div id="site-nav" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#services" class="scrollto">What I Do</a>
+        </li>
+        <li>
+          <a href="#about" class="scrollto">About Me</a>
+        </li>
+        <li id="logo">
+          <a href="#home" class="scrollto">
+            <h1>J<span>D</span></h1>
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio" class="scrollto">My Works</a>
+        </li>
+        <li>
+          <a href="#contact" class="scrollto">Contact Me</a>
+        </li>
+      </ul>
+    </div><!--End navbar-collapse -->
+    
+  </div><!--End container -->
+  
+</div><!--End main-nav -->
  
 <div class="page-header">
-    <h1><%= yield :page_header %></h1>
+
 </div>
+
 <%= yield %>
-
-
 
 </body>
 </html>
