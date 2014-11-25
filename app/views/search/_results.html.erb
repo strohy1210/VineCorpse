@@ -1,6 +1,8 @@
-<div class="row">
+<div class="row vine-results">
 <% @vines.each do |v| %>
+
   <article class="project-item web-design">
+
     <%= video_tag(v.video_url, preload:'auto', muted:true) %>
     <input id="movie_vines_attributes" name="movie[vines_attributes][][video_url]" value='<%= v.video_url %>' type="checkbox">
   </article>

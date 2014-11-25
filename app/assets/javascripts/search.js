@@ -1,2 +1,7 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function(){
+// $('#new_movie').find('input').hide();
+$('#new_movie').on('click', '.result-vine', function(){
+$(this).find('input').prop('checked', true);
+})
+
+})
