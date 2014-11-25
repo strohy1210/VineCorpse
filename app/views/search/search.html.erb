@@ -1,26 +1,40 @@
-<% content_for(:page_header) { "Vines to choose!"} %>
-
-<% if @vines && @vines.size > 0 %>
-  <div class="row">
-    <div class="col-md-12 search_results">
-        <h3>Step 2 - Add a title, choose the <%= @tag%> vines you'll use to create your movie, and submit! </h3>
-        <%= form_for @movie do |f| %>
-
+<!-- ==============================================
+    PORTFOLIO
+    =============================================== --> 
+<% if @vines && @vines.size > 0 %>    
+    <section id="portfolio" class="gray-bg padding-top-bottom">
+   
+      <div class="container">
+      
+        <header class="section-header text-center">
+        
+          <h1 class="scrollimation scale-in">Step 2 - Add a title, choose the <%= @tag%> vines you'll use to create your movie, and submit!</h1>
+          <p>                
+            <%= form_for @movie do |f| %>
+              <div class="form-group">
+                <%= f.label "Movie Title" %> 
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+          </p>
+        </header>
+            
+      </div><!--End portfolio header -->
+      
+      <div class="container masonry-wrapper scrollimation fade-in">    
+        <div id="projects-container">        
+            <%= render 'search/results' %>                      
+        </div><!-- End projects --> 
+        
+        
+        <div class="section-header text-center"><p>
           <div class="form-group">
-            <%= f.label "Movie Title" %> 
-            <%= f.text_field :title, class: "form-control" %>
+              <%= f.submit class: "btn btn-meflat icon-left" %>
           </div>
+        </p></div>
+      </div><!-- End container -->
 
-          
-            <%= render 'search/results' %>
-
-          <div class="form-group">
-            <%= f.submit %>
-          </div>
-        <% end %>
-    </div>  
-  </div>    
+          <% end %>
+    </section>
 <% else %>
   <h3> Aw shoot...sorry. Couldn't find any results. Try something a little simpler like "Skateboarding" </h3>
-<% end %>
-
+<% end %>      

@@ -5,3 +5,4 @@ Reminders:
 - add logo to fb register
 - on search results page, hover on video and have it play
 - selecting videos as opposed to tiny checkboxes 
+- when last vine is deleted, also delete movie
