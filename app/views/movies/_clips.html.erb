@@ -1,5 +1,5 @@
 <% @movie.vines.each do |v| %>
-<div data-id='<%=v.id%>' class='col-xs-4'>
+<div data-id='<%=v.id%>' class="col-md-4">
   <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true) %>
   <%= button_to "Delete from movie", movie_vine_path(@movie, v), method: :delete, remote: true %>
 </div>
