@@ -16,4 +16,14 @@
 //= require bootstrap
 //= require vineMovie
 //= require jquery-ui
+//= require jquery.easing.1.3.min
+//= require jquery.scrollto
+//= require jquery.fittext
+//= require jquery.flexslider.min
+//= require jquery.masonry
+//= require waypoints.min
+//= require jquery.label_better.min
+//= require jquery.easypiechart
+//= require contact
+//= require meflat
 //= require_tree .

@@ -10,15 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require jquery-ui
+ *= require bootstrap
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ //= depend_on_asset "fontawesome-webfont.eot"
+ *= require font-awesome
+ *= require flexslider
+ *= require meflat-light-green
+ *= require_tree .
+ *= require_self 
  */
-@import "bootstrap";
+
 /* Some Style from the Bootstrap Default Theme */
 body {
  
