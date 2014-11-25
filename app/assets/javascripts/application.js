@@ -26,4 +26,5 @@
 //= require jquery.easypiechart
 //= require contact
 //= require meflat
+//= require libs/modernizr.min
 //= require_tree .
