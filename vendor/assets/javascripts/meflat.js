@@ -22,25 +22,25 @@ $(document).ready(function() {
 	/*============================================
 	Header Functions
 	==============================================*/
-	$('.imac-screen').flexslider({
-		prevText: '<i class="fa fa-angle-left"></i>',
-		nextText: '<i class="fa fa-angle-right"></i>',
-		animation: 'slide',
-		slideshowSpeed: 3000,
-		useCSS: true,
-		controlNav: false,
-		directionNav: false,
-		pauseOnAction: false, 
-		pauseOnHover: false,
-		smoothHeight: false
-	});
+	// $('.imac-screen').flexslider({
+	// 	prevText: '<i class="fa fa-angle-left"></i>',
+	// 	nextText: '<i class="fa fa-angle-right"></i>',
+	// 	animation: 'slide',
+	// 	slideshowSpeed: 3000,
+	// 	useCSS: true,
+	// 	controlNav: false,
+	// 	directionNav: false,
+	// 	pauseOnAction: false, 
+	// 	pauseOnHover: false,
+	// 	smoothHeight: false
+	// });
 	
 	$("#home .text-col h1").fitText(0.9, { minFontSize: '38px', maxFontSize: '63px' });
 	$("#home .text-col p").fitText(1.2, { minFontSize: '18px', maxFontSize: '32px' });
 	
-	$('.imac-screen img').load(function(){
+	// $('.imac-screen img').load(function(){
 		$('#home .text-col h1, #home .text-col p, #home .imac-frame').addClass('in');
-	});
+	// });
 	
 	/*============================================
 	Skills Functions
