@@ -14,7 +14,12 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
-    @vines = @movie.vines
+    if @movie.user == current_user
+      @vines = @movie.vines
+    else
+      flash[:danger] = "You have to be the owner of the movie to edit it! But you can view it below"
+      redirect_to movie_path(@movie)
+    end
   end
 
   def update

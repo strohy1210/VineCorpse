@@ -1,6 +1,10 @@
-<% content_for(:page_header) { "Vines to choose!"} %>
-<%= @movie.title %>
+<% content_for(:page_header) { "#{@movie.title}" } %>
 
-<% @movie.vines.each do |v| %>
-  <video id="video" type="video/mp4" preload="auto" src=<%= v.video_url %>></video>
-<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="reel">
+    <%= render 'reel' %>
+  </div>
+
+</div>

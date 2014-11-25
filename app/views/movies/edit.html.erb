@@ -1,6 +1,8 @@
 <% content_for(:page_header) { "Your video...so far!"} %>
 <h3><%= @movie.title.capitalize %></h3>
 
+<%= link_to "Submit your movie", movie_path(@movie) %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
   <div class="reel">
@@ -8,6 +10,7 @@
   </div>
 
 </div>
+
 
 
 <div class="row">
