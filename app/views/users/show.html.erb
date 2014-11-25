@@ -1,0 +1,19 @@
+<% content_for(:page_header) { "#{@user.name}" } %>
+
+<div class="my-movies">
+  <% @movies.each_with_index do |m, i| %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= m.title %>
+        <div class="reel-test">
+          <% m.vines.each do |v| %>
+            <%= video_tag(v.video_url, :'data-id' => v.id, muted:true, preload: true) %>
+          <% end %>
+        </div>
+        <%= link_to 'View', movie_path(m) %>
+        |
+        <%= link_to 'Edit', edit_movie_path(m) %>
+        <br>
+      </div>
+  <% end %>
+</div>
