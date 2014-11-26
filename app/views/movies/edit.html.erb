@@ -21,7 +21,8 @@
         </div>        
        
       <div>
-        <button id="add-more-vines" class="btn btn-meflat icon-left btn-centered">Add More Vines</button> 
+        <button id="add-more-vines" class="btn btn-meflat icon-left btn-centered">Add More Vines</button> <br>
+        <%= button_to "Submit Movie", user_path(current_user), :method => "get", id: "add-more-vines", class: "btn btn-meflat icon-left btn-centered" %>
       </div>
 
       </article>        

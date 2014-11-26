@@ -6,3 +6,4 @@ Reminders:
 - on search results page, hover on video and have it play
 - selecting videos as opposed to tiny checkboxes 
 - when last vine is deleted, also delete movie
+- edit title on edit page
