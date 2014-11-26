@@ -19,12 +19,16 @@
         <div class="reel">
           <%= render 'reel' %>
         </div>        
-        
+       
+      <div>
+        <button id="add-more-vines" class="btn btn-meflat icon-left btn-centered">Add More Vines</button> 
+      </div>
+
       </article>        
         
     </div>
 
-    <div class="section-header row">
+    <div class="section-header row clips">
       <%= render 'clips' %>      
     </div>
         
@@ -32,7 +36,7 @@
   </div><!-- End container -->           
 </section>
 
-<section id="add-more-vines" class="gray-bg padding-top-bottom">
+<section id="add-more-vines-form" class="gray-bg padding-top-bottom">
 
     <div class="container">
     
@@ -46,16 +50,16 @@
           </div>
       </div>        
     <% end %> 
-
     
   </div>
-  
 
-<%= form_for @movie, remote: true do |f| %>
-<div class="search-results">
+  <div class="container">
+    <%= form_for @movie, remote: true do |f| %>
+    <div class="search-results">
 
-</div>
-<%= f.submit "Add vines to movie" %>
-<% end %>
+    </div>
+    <%= f.submit "Done", id:"add-more-vines-btn", class: "btn btn-meflat icon-left btn-centered", style: "display:none" %>
 
+    <% end %>
+  </div>
 </section>
