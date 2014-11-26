@@ -1,9 +1,23 @@
 <% content_for(:page_header) { "#{@user.name}" } %>
 
-<div class="my-movies">
+
+<section id="portfolio" class="gray-bg padding-top-bottom">
+
+  <div class="container">
+  
+    <header class="section-header text-center">
+      <h1>My Movies</h1>
+    </header>
+        
+  </div><!--End portfolio header -->
+  
+</section>
+
+
+<div class="my-movies container">
+  <ul>
   <% @movies.each_with_index do |m, i| %>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+    <li>
           <%= m.title %>
           <div class="reel-test">
             <% m.vines.each do |v| %>
@@ -16,8 +30,7 @@
         |
         <%= link_to 'Delete', movie_path(m), method: :delete %> <br>
         
-        <br><br>
-      </div>
-    </div>
+  <li>
   <% end %>
+</ul>
 </div>
