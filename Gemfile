@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'figaro', '~> 1.0.0'
 
+gem 'underscore-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -52,7 +54,6 @@ group :test, :development do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
-  gem 'underscore-rails'
 end
 
 group :production do
