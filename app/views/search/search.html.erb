@@ -1,6 +1,3 @@
-<!-- ==============================================
-    PORTFOLIO
-    =============================================== --> 
 <% if @vines && @vines.size > 0 %>    
     <section id="portfolio" class="gray-bg padding-top-bottom">
    
@@ -36,5 +33,19 @@
           <% end %>
     </section>
 <% else %>
-  <h3> Aw shoot...sorry. Couldn't find any results. Try something a little simpler like "Skateboarding" </h3>
+<section class="gray-bg slab">
+      <div class="container">
+        <header class="section-header text-center">
+          <h1 class="scrollimation scale-in in">Aw shoot... sorry.</h1>
+        </header>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <p class="text-center scrollimation fade-in in">Couldn't find any results. Try something a little simpler like "Skateboarding" </p>
+          </div>
+        </div>
+        <p class="text-center">
+          <%= link_to 'Back', root_path, class: "btn btn-meflat black icon-left" %>
+        </p>
+      </div>    
+</section>     
 <% end %>      
