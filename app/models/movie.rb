@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  has_many :vines
+  has_many :vines, dependent: :destroy
   accepts_nested_attributes_for :vines
   belongs_to :user
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/auth/facebook', as: 'login'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :movies, only: [:create, :show, :edit, :update] do
+  resources :movies, only: [:create, :show, :edit, :update, :destroy] do
     resources :vines, only: [:destroy]
   end
 

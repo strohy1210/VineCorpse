@@ -30,6 +30,12 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
   end
+  def destroy
+    # binding.pry
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to :back
+  end
 
   private
     def movie_params
