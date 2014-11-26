@@ -3,7 +3,7 @@ $(function(){
 $('.vine-results').find('input').hide();
 $('.vine-results').on('click', '.project-item', function(){
   // debugger;
-  var checkBox = $(this).find('input.unchecked');
+  var checkBox = $(this).find('input');
   
   $(this).toggleClass("selected");
   if ($(this).hasClass("selected")) {
