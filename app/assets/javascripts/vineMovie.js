@@ -134,7 +134,7 @@ var VineMovie = (function($) {
   }
 
   function _addVideoControls() {
-    var $controls = $("<input type='range' class='reel-clip-control' min='0' step='"+ this.controlStep + "'>");
+    var $controls = $("<input type='range' class='slider' min='0' step='"+ this.controlStep + "'>");
     $controls.attr('max', _getMaxLengthFrom(this.allVideos()));
     $controls.val(0);
 
