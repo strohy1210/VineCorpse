@@ -18,8 +18,9 @@ $("#search-results").on('click', '.project-item', function(){
 });
 
 $('.project-item').hover(function(){
-$(this).find('video').get(0).play()
+  $(this).find('video').get(0).muted = false;
+  $(this).find('video').get(0).play()
 }, function(){
-$(this).find('video').get(0).pause()
-
+  $(this).find('video').get(0).muted = true;
+  $(this).find('video').get(0).pause()
 })
