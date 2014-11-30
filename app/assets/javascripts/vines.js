@@ -10,11 +10,11 @@ if($('.reel').length > 0) {
 }
 
 if($('.reel-index').length > 0) {
-  var movieReel = new VineMovie({
+  var movieReelIndex = new VineMovie({
     source: '.reel-index',
     controls: false
   })
-  movieReel.start()
+  movieReelIndex.start()
 }
 
 });

@@ -1,10 +1,16 @@
 // Place all the styles related to the Vines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//= depend_on_asset "volume_v2_off.png"
+//= depend_on_asset "volume_v2_on.png"
 
 video {
   width: 259px;
   height: 284px;
+}
+
+.reel {
+  position: relative;
 }
 
 .reel video, .reel-index video {
@@ -15,4 +21,22 @@ video {
 .clips video {
   width: 275px;
   height: 284px;
+}
+
+.volume-off {
+  background: asset-url('volume_v2_off.png') no-repeat;
+}
+
+
+.volume-on {
+  background: asset-url('volume_v2_on.png') no-repeat;
+}
+
+.reel-clip-volume {
+  position: absolute;
+  top:15px;
+  left:15px;
+  width: 40px;
+  height:30px;
+  z-index:20;
 }

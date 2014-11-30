@@ -3,18 +3,16 @@ var VineMovie = (function($) {
   function _VineMovie(spec) {
     this.$el = $(spec.source)
     this.domVideoElements = []
-    this.videoUrls = spec.videoUrls
     this.muted = spec.muted || true
     this.currentVideo = 0
     this.controlStep = spec.controlStep || 0.01
     this.controls = spec.controls || false;
+    this.volumeControls = spec.volumeControls || true;
 
-    if(spec.ajaxLoaderUrl) {
-      var img = new Image();
-      img.src = spec.ajaxLoaderUrl;
-      this.ajaxLoader = img;
+    if(spec.ajaxLoaderElement) {
+      this.$ajaxLoader = $(ajaxLoaderElement);
     } else {
-      this.ajaxLoader = $("<span>Loading...</span>");
+      this.$ajaxLoader = $("<span>Loading...</span>");
     }
     
   }
@@ -22,11 +20,15 @@ var VineMovie = (function($) {
   _VineMovie.prototype.start = function(){
     _formatVideosToReel.call(this);
     this.ready(function() {
-      $(this.ajaxLoader).hide();
+      $(this.$ajaxLoader).hide();
       if(this.allVideos().length > 0) {
         this.play();
         if(this.controls) {
           _addVideoControls.call(this);      
+        }
+
+        if(this.volumeControls) {
+          _addVolumeControls.call(this);
         }
       }
     })
@@ -98,13 +100,14 @@ var VineMovie = (function($) {
     for(var i = 0; i < $videos.length; i++) {
       $videos.eq(i).hide();
       $videos.attr('preload', 'metadata');
+      $videos.attr('muted', 'true');
       $videos.eq(i).addClass('reel-clip');
       $videos.eq(i).attr('data-order', i);
       $videos.eq(i).on('ended', function(){
         reel.playNext();
       });
 
-      if(reel.$controls){
+      if(reel.controls){
         $videos.eq(i).on('timeupdate', function(event) {
           var order = $(reel.currentDomVideo()).data('order');
           var currentTime = reel.currentDomVideo().currentTime;
@@ -113,7 +116,7 @@ var VineMovie = (function($) {
         })
       }
 
-      $videos.eq(i).on('click', function() {
+      $videos.eq(i).on('click', function(e) {
         if(reel.isPlaying()) {
           reel.stop();
         } else{
@@ -138,7 +141,7 @@ var VineMovie = (function($) {
   }
 
   function _addVideoControls() {
-    var $controls = $("<input type='range' class='slider' min='0' step='"+ this.controlStep + "'>");
+    var $controls = $("<input type='range' class='reel-clip-controls slider' min='0' step='"+ this.controlStep + "'>");
     $controls.attr('max', _getMaxLengthFrom(this.allVideos()));
     $controls.val(0);
 
@@ -163,6 +166,33 @@ var VineMovie = (function($) {
     this.$el.append($controls);
   }
 
+  function _addVolumeControls() {
+    var $controls = $("<a href='#' class='reel-clip-volume volume-off'>"),
+        reel = this;
+
+    $controls.click(function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      var volumeControl = $(this);
+      if(volumeControl.hasClass('volume-on')) {
+        volumeControl.removeClass('volume-on');
+        volumeControl.addClass('volume-off');
+        reel.allVideos().each(function() {
+          this.muted = true;
+        })
+        
+      } else {
+        volumeControl.removeClass('volume-off');
+        volumeControl.addClass('volume-on');        
+        reel.allVideos().each(function() {
+          this.muted = false;
+        })
+      }
+    })
+
+    this.$el.prepend($controls);
+  }
 
   function _getVideoFromDuration($videos, duration) {    
     var total = 0;
