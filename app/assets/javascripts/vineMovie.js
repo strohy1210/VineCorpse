@@ -123,6 +123,21 @@ var VineMovie = (function($) {
           reel.play();
         }
       });
+
+      $videos.eq(i).hover( function() {
+        console.log('hover on', reel.$volumeControls.hasClass('controls-inactive'))
+        if(reel.$volumeControls.hasClass('controls-inactive')) {
+          reel.$volumeControls.removeClass('controls-inactive');
+          reel.$volumeControls.addClass('controls-active');
+        }
+      }, function() {
+        console.log('hover on', reel.$volumeControls.hasClass('controls-active'))
+        if(reel.$volumeControls.hasClass('controls-active')) {
+          reel.$volumeControls.removeClass('controls-active');
+          reel.$volumeControls.addClass('controls-inactive')
+        }        
+      });
+
     }
   }
 
@@ -167,7 +182,7 @@ var VineMovie = (function($) {
   }
 
   function _addVolumeControls() {
-    var $controls = $("<a href='#' class='reel-clip-volume volume-off'>"),
+    var $controls = $("<a href='#' class='reel-clip-volume controls-inactive volume-off'>"),
         reel = this;
 
     $controls.click(function(event) {
@@ -191,6 +206,7 @@ var VineMovie = (function($) {
       }
     })
 
+    this.$volumeControls = $controls;
     this.$el.prepend($controls);
   }
 

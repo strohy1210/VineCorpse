@@ -40,3 +40,15 @@ video {
   height:30px;
   z-index:20;
 }
+
+.reel-clip-volume:hover {
+  opacity: 1.0
+}
+
+.controls-inactive {
+  opacity: 0.1
+}
+
+.controls-active {
+  opacity: 1.0
+}
