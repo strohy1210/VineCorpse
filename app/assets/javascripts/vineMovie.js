@@ -23,9 +23,11 @@ var VineMovie = (function($) {
     _formatVideosToReel.call(this);
     this.ready(function() {
       $(this.ajaxLoader).hide();
-      this.play();
-      if(this.controls) {
-        _addVideoControls.call(this);      
+      if(this.allVideos().length > 0) {
+        this.play();
+        if(this.controls) {
+          _addVideoControls.call(this);      
+        }
       }
     })
   }
