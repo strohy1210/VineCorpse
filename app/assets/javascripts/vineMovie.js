@@ -104,12 +104,14 @@ var VineMovie = (function($) {
         reel.playNext();
       });
 
-      $videos.eq(i).on('timeupdate', function(event) {
-        var order = $(reel.currentDomVideo()).data('order');
-        var currentTime = reel.currentDomVideo().currentTime;
-        reel.$controls.val(_getMaxLengthUpto(reel.allVideos(), order) + currentTime)
-        
-      })
+      if(reel.$controls){
+        $videos.eq(i).on('timeupdate', function(event) {
+          var order = $(reel.currentDomVideo()).data('order');
+          var currentTime = reel.currentDomVideo().currentTime;
+          reel.$controls.val(_getMaxLengthUpto(reel.allVideos(), order) + currentTime)
+          
+        })
+      }
 
       $videos.eq(i).on('click', function() {
         if(reel.isPlaying()) {
