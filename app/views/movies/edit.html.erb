@@ -3,41 +3,41 @@
   <div class="container">
   
     <header class="section-header text-center">
-    
-      <h1 class="scrollimation scale-in in">   <%= @movie.title  %>      <p>                
-           
-
-          </p></h1>
-    
+      <h1 class="scrollimation scale-in in">   <%= @movie.title  %>     </h1>
     </header>    
+  </div>
+  <div class="container">
     
-  </div><!--End portfolio header -->
-  
-  <div class="container masonry-wrapper">
-  
-    <div id="projects-container">
-    
-      <article class="project-item web-design masonry-brick" style="position: absolute; top: 0px; left: 0px;">
-        
-        <div class="reel">
-          <%= render 'reel' %>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4" >
+          <div class="reel" >
+            <%= render 'reel' %>
+          </div>        
         </div>        
-       
-      <div>
-        <button id="add-more-vines" class="btn btn-meflat icon-left btn-centered">Add More Vines</button> <br>
-        <%= button_to "Submit Movie", user_path(current_user), :method => "get", id: "add-more-vines", class: "btn btn-meflat icon-left btn-centered" %>
+    </div>
+    <div class="row">
+          <div class="col-md-12" >
+            <button id="add-more-vines" class="btn btn-meflat icon-left btn-centered">Add More Vines</button> <br>
+            <%= button_to "Submit Movie", user_path(current_user), :method => "get", id: "submit-movie", class: "btn btn-meflat icon-left btn-centered" %>
+          </div>        
+      
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="clips">
+        <%= render 'clips' %>      
       </div>
-
-      </article>        
-        
+          
     </div>
 
-    <div class="section-header row clips">
-      <%= render 'clips' %>      
-    </div>
-        
-    </div><!-- End projects -->     
   </div><!-- End container -->           
+</section>
+
+<section class="gray-bg padding-top-bottom">
 </section>
 
 <section id="add-more-vines-form" class="gray-bg padding-top-bottom">

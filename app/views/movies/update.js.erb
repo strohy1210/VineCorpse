@@ -1,9 +1,10 @@
 $('.clips').html("<%=j render 'clips' %>")
 $('.reel').html("<%=j render 'reel' %>")
 var movieReel = new VineMovie({
-    source: '.reel'
+    source: '.reel',
+    controls: true
   })
-  movieReel.start()
+  movieReel.start();
 $('body').scrollTop(0);
 $(':checked').prop('checked', false);
 

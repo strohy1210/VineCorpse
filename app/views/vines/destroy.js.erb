@@ -1,3 +1,11 @@
-$('div[data-id=<%=@vine.id%>]').remove()
+$('div[data-id=<%=@vine.id%>]').remove();
 
-$('div.reel').find('video[data-id=<%=@vine.id%>]').remove()
+$('.reel').slideUp();
+$('.reel').html("<%=j render 'movies/reel' %>");
+$('.reel').slideDown();
+
+var movieReel = new VineMovie({
+    source: '.reel',
+    controls: true
+  })
+  movieReel.start();
