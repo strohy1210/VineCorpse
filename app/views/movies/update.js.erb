@@ -3,7 +3,6 @@ $('.reel').html("<%=j render 'reel' %>")
 var movieReel = new VineMovie({
     source: '.reel'
   })
-  movieReel.build()
   movieReel.start()
 $('body').scrollTop(0);
 $(':checked').prop('checked', false);

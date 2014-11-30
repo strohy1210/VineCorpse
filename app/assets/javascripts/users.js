@@ -6,7 +6,6 @@ $(function () {
         var movieReel = new VineMovie({
             source: $movies.eq(i)
           });
-          movieReel.build();
           movieReel.start();
         }
       }
