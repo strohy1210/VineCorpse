@@ -78,7 +78,7 @@ var VineMovie = (function($) {
         clearInterval(readyInterval);
         callback.call(self);
       }
-    })    
+    }, 100);    
   }
 
 
@@ -125,13 +125,11 @@ var VineMovie = (function($) {
       });
 
       $videos.eq(i).hover( function() {
-        console.log('hover on', reel.$volumeControls.hasClass('controls-inactive'))
         if(reel.$volumeControls.hasClass('controls-inactive')) {
           reel.$volumeControls.removeClass('controls-inactive');
           reel.$volumeControls.addClass('controls-active');
         }
       }, function() {
-        console.log('hover on', reel.$volumeControls.hasClass('controls-active'))
         if(reel.$volumeControls.hasClass('controls-active')) {
           reel.$volumeControls.removeClass('controls-active');
           reel.$volumeControls.addClass('controls-inactive')
